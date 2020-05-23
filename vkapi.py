@@ -4,12 +4,12 @@ import json
 import urllib.request
 from urllib.parse   import quote
 
-vk_session = vk_api.VkApi(token='1101549996d1a40ba59078cae8183c2f4c894030ecf97d536123661494b56f6646112674cb449fb978f13')
+vk_session = vk_api.VkApi(token='my token is here')
 
 from vk_api.longpoll import VkLongPoll, VkEventType
 longpoll = VkLongPoll(vk_session)
 vk = vk_session.get_api()
-commands = ['рио','помощь', 'фарк']
+commands = ['рио','помощь', 'тест']
 
 def send_rio_message(char_name):
     if string_list[0] == commands[0]:
@@ -56,7 +56,7 @@ for event in longpoll.listen():
             vk.messages.send(
                     user_id=event.user_id,
                     random_id=event.random_id,
-                    message='Список команд: рио <имя персонажа>, помощь, фарк'
+                    message='Список команд: рио <имя персонажа>, помощь, тест'
                 )
 
 
